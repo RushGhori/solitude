@@ -1,0 +1,77 @@
+'use client';
+
+import { useFormState, useFormStatus } from 'react-dom';
+import { useEffect, useRef } from 'react';
+
+import { submitContactForm, type FormState } from '@/app/actions';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/hooks/use-toast';
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+  return (
+    <Button type="submit" disabled={pending} className="w-full">
+      {pending ? 'Sending...' : 'Send Message'}
+    </Button>
+  );
+}
+
+export function ContactForm() {
+  const initialState: FormState = { success: false, message: '' };
+  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const formRef = useRef<HTMLFormElement>(null);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    if (state.success) {
+      toast({
+        title: 'Success!',
+        description: state.message,
+      });
+      formRef.current?.reset();
+    } else if (state.message && !state.success && state.errors) {
+       toast({
+        title: 'Error',
+        description: state.message,
+        variant: 'destructive',
+      });
+    }
+  }, [state, toast]);
+
+  return (
+    <form ref={formRef} action={formAction} className="space-y-6">
+      <div className="space-y-2">
+        <Label htmlFor="name">Name</Label>
+        <Input id="name" name="name" placeholder="Your Name" required />
+        {state.errors?.name && (
+          <p className="text-sm text-destructive">{state.errors.name.join(', ')}</p>
+        )}
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="email">Email</Label>
+        <Input id="email" name="email" type="email" placeholder="your@email.com" required />
+         {state.errors?.email && (
+          <p className="text-sm text-destructive">{state.errors.email.join(', ')}</p>
+        )}
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="subject">Subject</Label>
+        <Input id="subject" name="subject" placeholder="Inquiry Subject" required />
+         {state.errors?.subject && (
+          <p className="text-sm text-destructive">{state.errors.subject.join(', ')}</p>
+        )}
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="message">Message</Label>
+        <Textarea id="message" name="message" placeholder="Your message..." rows={6} required />
+         {state.errors?.message && (
+          <p className="text-sm text-destructive">{state.errors.message.join(', ')}</p>
+        )}
+      </div>
+      <SubmitButton />
+    </form>
+  );
+}

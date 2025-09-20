@@ -1,0 +1,178 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-home",
+      "description": "Abstract office building architecture",
+      "imageUrl": "https://picsum.photos/seed/100/1920/1080",
+      "imageHint": "office building"
+    },
+    {
+      "id": "hero-about",
+      "description": "A diverse team collaborating in a modern office",
+      "imageUrl": "https://picsum.photos/seed/101/1920/1080",
+      "imageHint": "team collaboration"
+    },
+    {
+      "id": "hero-services",
+      "description": "Close-up of a person typing on a laptop with code on screen",
+      "imageUrl": "https://picsum.photos/seed/102/1920/1080",
+      "imageHint": "laptop code"
+    },
+    {
+      "id": "hero-portfolio",
+      "description": "A wall with various project mockups and designs",
+      "imageUrl": "https://picsum.photos/seed/103/1920/1080",
+      "imageHint": "design mockups"
+    },
+    {
+      "id": "hero-blog",
+      "description": "A person reading a book in a cozy cafe",
+      "imageUrl": "https://picsum.photos/seed/104/1920/1080",
+      "imageHint": "person reading"
+    },
+    {
+      "id": "hero-contact",
+      "description": "A vintage telephone on a wooden desk",
+      "imageUrl": "https://picsum.photos/seed/105/1920/1080",
+      "imageHint": "vintage telephone"
+    },
+    {
+      "id": "project-1",
+      "description": "Dashboard UI for a financial tech company",
+      "imageUrl": "https://picsum.photos/seed/201/600/400",
+      "imageHint": "dashboard ui"
+    },
+    {
+      "id": "project-2",
+      "description": "Mobile app design for a health and wellness brand",
+      "imageUrl": "https://picsum.photos/seed/202/600/400",
+      "imageHint": "mobile app"
+    },
+    {
+      "id": "project-3",
+      "description": "E-commerce website for a fashion retailer",
+      "imageUrl": "https://picsum.photos/seed/203/600/400",
+      "imageHint": "ecommerce website"
+    },
+    {
+      "id": "project-4",
+      "description": "Corporate branding and logo design for a startup",
+      "imageUrl": "https://picsum.photos/seed/204/600/400",
+      "imageHint": "logo design"
+    },
+    {
+      "id": "project-5",
+      "description": "Cloud infrastructure diagram for a large enterprise",
+      "imageUrl": "https://picsum.photos/seed/205/600/400",
+      "imageHint": "cloud infrastructure"
+    },
+    {
+      "id": "project-6",
+      "description": "Marketing campaign analytics dashboard",
+      "imageUrl": "https://picsum.photos/seed/206/600/400",
+      "imageHint": "analytics dashboard"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Headshot of a smiling female client",
+      "imageUrl": "https://picsum.photos/seed/301/100/100",
+      "imageHint": "woman smiling"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Headshot of a professional male client",
+      "imageUrl": "https://picsum.photos/seed/302/100/100",
+      "imageHint": "man professional"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Headshot of a person in a creative setting",
+      "imageUrl": "https://picsum.photos/seed/303/100/100",
+      "imageHint": "creative person"
+    },
+    {
+      "id": "blog-1",
+      "description": "An abstract image representing digital transformation",
+      "imageUrl": "https://picsum.photos/seed/401/800/600",
+      "imageHint": "digital abstract"
+    },
+    {
+      "id": "blog-2",
+      "description": "A stock market chart on a screen",
+      "imageUrl": "https://picsum.photos/seed/402/800/600",
+      "imageHint": "stock chart"
+    },
+    {
+      "id": "blog-3",
+      "description": "Cyber security concept with a digital lock",
+      "imageUrl": "https://picsum.photos/seed/403/800/600",
+      "imageHint": "cyber security"
+    },
+    {
+      "id": "blog-4",
+      "description": "Cloud computing concept with connected devices",
+      "imageUrl": "https://picsum.photos/seed/404/800/600",
+      "imageHint": "cloud computing"
+    },
+    {
+      "id": "team-1",
+      "description": "Professional headshot of Jane Doe, CEO",
+      "imageUrl": "https://picsum.photos/seed/501/400/400",
+      "imageHint": "woman ceo"
+    },
+    {
+      "id": "team-2",
+      "description": "Professional headshot of John Smith, CTO",
+      "imageUrl": "https://picsum.photos/seed/502/400/400",
+      "imageHint": "man professional"
+    },
+    {
+      "id": "team-3",
+      "description": "Professional headshot of Emily White, COO",
+      "imageUrl": "https://picsum.photos/seed/503/400/400",
+      "imageHint": "woman professional"
+    },
+    {
+      "id": "team-4",
+      "description": "Professional headshot of Michael Brown, Lead Designer",
+      "imageUrl": "https://picsum.photos/seed/504/400/400",
+      "imageHint": "man designer"
+    },
+    {
+      "id": "service-consulting",
+      "description": "Business people in a meeting room discussing strategy",
+      "imageUrl": "https://picsum.photos/seed/601/1200/800",
+      "imageHint": "business meeting"
+    },
+    {
+      "id": "service-marketing",
+      "description": "A complex marketing funnel diagram",
+      "imageUrl": "https://picsum.photos/seed/602/1200/800",
+      "imageHint": "marketing funnel"
+    },
+    {
+      "id": "service-security",
+      "description": "A server room with a security guard",
+      "imageUrl": "https://picsum.photos/seed/603/1200/800",
+      "imageHint": "server room"
+    },
+    {
+      "id": "service-cloud",
+      "description": "Data flowing through abstract cloud shapes",
+      "imageUrl": "https://picsum.photos/seed/604/1200/800",
+      "imageHint": "data cloud"
+    },
+    {
+      "id": "service-design",
+      "description": "A designer's desk with sketches and a tablet",
+      "imageUrl": "https://picsum.photos/seed/605/1200/800",
+      "imageHint": "designer desk"
+    },
+    {
+      "id": "service-development",
+      "description": "Multiple monitors with lines of code",
+      "imageUrl": "https://picsum.photos/seed/606/1200/800",
+      "imageHint": "coding monitors"
+    }
+  ]
+}
