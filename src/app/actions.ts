@@ -1,6 +1,8 @@
 'use server';
 
 import { z } from 'zod';
+import fs from 'fs/promises';
+import path from 'path';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -29,8 +31,28 @@ export async function submitContactForm(
 
   if (parsed.success) {
     console.log('Form submitted successfully:', parsed.data);
-    // Here you would typically send an email or save the data to a database.
-    // For this demo, we'll just simulate a success response.
+    // Store locally in a JSON file under src/data/contact-submissions.json
+    try {
+      const dataDir = path.join(process.cwd(), 'src', 'data');
+      const filePath = path.join(dataDir, 'contact-submissions.json');
+      await fs.mkdir(dataDir, { recursive: true });
+      let existing: unknown[] = [];
+      try {
+        const buf = await fs.readFile(filePath, 'utf-8');
+        existing = JSON.parse(buf);
+        if (!Array.isArray(existing)) existing = [];
+      } catch (_) {
+        existing = [];
+      }
+      const entry = {
+        ...parsed.data,
+        receivedAt: new Date().toISOString(),
+      };
+      existing.push(entry);
+      await fs.writeFile(filePath, JSON.stringify(existing, null, 2), 'utf-8');
+    } catch (err) {
+      console.error('Failed to persist contact submission locally:', err);
+    }
     return {
       success: true,
       message: 'Thank you for your message! We will get back to you shortly.',

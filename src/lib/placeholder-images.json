@@ -115,10 +115,52 @@
       "imageHint": "cloud computing"
     },
     {
+      "id": "blog-nextjs",
+      "description": "Performance metrics and code on a laptop screen",
+      "imageUrl": "https://picsum.photos/seed/701/800/600",
+      "imageHint": "web performance"
+    },
+    {
+      "id": "blog-design-systems",
+      "description": "Design system tokens and components on a canvas",
+      "imageUrl": "https://picsum.photos/seed/702/800/600",
+      "imageHint": "design system"
+    },
+    {
+      "id": "blog-data-modeling",
+      "description": "Data diagrams and analytics charts",
+      "imageUrl": "https://picsum.photos/seed/703/800/600",
+      "imageHint": "data modeling"
+    },
+    {
+      "id": "blog-automation",
+      "description": "Automated workflow diagram with connectors",
+      "imageUrl": "https://picsum.photos/seed/704/800/600",
+      "imageHint": "workflow automation"
+    },
+    {
+      "id": "blog-cloud-cost",
+      "description": "Cloud infrastructure with cost analytics overlay",
+      "imageUrl": "https://picsum.photos/seed/705/800/600",
+      "imageHint": "cloud cost"
+    },
+    {
+      "id": "blog-security",
+      "description": "Secure code and shield icon over terminal",
+      "imageUrl": "https://picsum.photos/seed/706/800/600",
+      "imageHint": "application security"
+    },
+    {
       "id": "team-1",
       "description": "Professional headshot of Jane Doe, CEO",
       "imageUrl": "https://picsum.photos/seed/501/400/400",
       "imageHint": "woman ceo"
+    },
+    {
+      "id": "sheetal-savani",
+      "description": "Professional studio headshot of Sheetal Savani",
+      "imageUrl": "/logo.svg",
+      "imageHint": "company logo"
     },
     {
       "id": "team-2",
@@ -145,10 +187,10 @@
       "imageHint": "business meeting"
     },
     {
-      "id": "service-marketing",
-      "description": "A complex marketing funnel diagram",
+      "id": "data-analytics",
+      "description": "A complex data analytics dashboard",
       "imageUrl": "https://picsum.photos/seed/602/1200/800",
-      "imageHint": "marketing funnel"
+      "imageHint": "data analytics"
     },
     {
       "id": "service-security",

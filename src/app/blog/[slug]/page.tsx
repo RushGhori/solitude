@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { blogPosts } from '@/lib/placeholder-data';
@@ -38,6 +38,29 @@ export default function BlogPostPage({ params }: Props) {
 
   const image = PlaceHolderImages.find(img => img.id === post.imageId);
 
+  const renderContent = (content: string) => {
+    const blocks = content.split(/\n\n+/);
+    return blocks.map((block, idx) => {
+      if (block.startsWith('## ')) {
+        return <h2 key={idx}>{block.replace(/^##\s+/, '')}</h2>;
+      }
+      if (block.startsWith('> ')) {
+        return <blockquote key={idx}>{block.replace(/^>\s+/, '')}</blockquote>;
+      }
+      if (block.split('\n').every(line => line.trim().startsWith('- '))) {
+        const items = block.split('\n').map(line => line.replace(/^-\s+/, ''));
+        return (
+          <ul key={idx}>
+            {items.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+        );
+      }
+      return <p key={idx}>{block}</p>;
+    });
+  };
+
   return (
     <article className="animate-fade-in">
       <header className="relative w-full h-[60vh] hero-gradient">
@@ -65,18 +88,7 @@ export default function BlogPostPage({ params }: Props) {
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="prose prose-lg max-w-4xl mx-auto dark:prose-invert prose-headings:font-headline">
           <p className="lead text-xl text-muted-foreground">{post.excerpt}</p>
-          <p>{post.content}</p>
-          
-          <h2>Sub-heading for Demonstration</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
-          </p>
-          <blockquote>
-            "The journey of a thousand miles begins with a single step." - Lao Tzu
-          </blockquote>
-          <p>
-            Donec eget tellus non erat lacinia fermentum. Donec in velit vel ipsum auctor pulvinar. Vestibulum iaculis lacinia est. Proin dictum elementum velit. Fusce euismod consequat ante. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque sed dolor. Aliquam congue fermentum nisl.
-          </p>
+          {renderContent(post.content)}
         </div>
       </div>
     </article>

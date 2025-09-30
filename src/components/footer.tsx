@@ -33,9 +33,9 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/services/strategic-consulting" className="text-muted-foreground hover:text-primary">Strategic Consulting</Link></li>
-              <li><Link href="/services/digital-marketing" className="text-muted-foreground hover:text-primary">Digital Marketing</Link></li>
-              <li><Link href="/services/software-development" className="text-muted-foreground hover:text-primary">Software Development</Link></li>
+              <li><Link href="/services/mobile-development" className="text-muted-foreground hover:text-primary">Mobile Development</Link></li>
+              <li><Link href="/services/web-development" className="text-muted-foreground hover:text-primary">Web Development</Link></li>
+              <li><Link href="/services/web-and-mobile-design" className="text-muted-foreground hover:text-primary">Web and Mobile design</Link></li>
               <li><Link href="/services" className="text-muted-foreground hover:text-primary">All Services</Link></li>
             </ul>
           </div>
@@ -44,16 +44,16 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/about" className="text-muted-foreground hover:text-primary">About Us</Link></li>
               <li><Link href="/blog" className="text-muted-foreground hover:text-primary">Blog</Link></li>
-              <li><Link href="/portfolio" className="text-muted-foreground hover:text-primary">Portfolio</Link></li>
+              {/* <li><Link href="/portfolio" className="text-muted-foreground hover:text-primary">Portfolio</Link></li> */}
               <li><Link href="/contact" className="text-muted-foreground hover:text-primary">Contact Us</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <div className="text-sm text-muted-foreground space-y-2">
-              <p>123 Innovation Drive<br/>Tech City, TX 12345</p>
+              <p>Niagra Falls<br/>Toronto, ON. Canada</p>
               <p>Email: <a href="mailto:contact@solitudeinfotech.com" className="hover:text-primary">contact@solitudeinfotech.com</a></p>
-              <p>Phone: <a href="tel:+1234567890" className="hover:text-primary">(123) 456-7890</a></p>
+              <p>Phone: <a href="tel:+14164567890" className="hover:text-primary">(416) 456-7890</a></p>
             </div>
           </div>
         </div>

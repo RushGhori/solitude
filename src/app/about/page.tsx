@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { teamMembers } from '@/lib/placeholder-data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Linkedin, Twitter } from 'lucide-react';
 
@@ -12,10 +11,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-about');
-  const teamImages = teamMembers.map(member => {
-    const placeholder = PlaceHolderImages.find(img => img.id === member.imageId);
-    return { ...member, ...placeholder };
-  });
+  const sheetalImage = PlaceHolderImages.find(img => img.id === 'sheetal-savani') ?? PlaceHolderImages.find(img => img.id === 'team-1');
 
   return (
     <div className="animate-fade-in">
@@ -32,7 +28,7 @@ export default function AboutPage() {
         <div className="relative container mx-auto flex flex-col items-center justify-center h-full text-center px-4">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter font-headline">About Solitude Infotech Inc.</h1>
           <p className="max-w-2xl text-lg md:text-xl text-primary-foreground/80 mt-4">
-            The minds and mission behind our drive for innovation.
+            The mind and mission behind our drive for innovation.
           </p>
         </div>
       </section>
@@ -59,39 +55,53 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline">Meet Our Team</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-headline">Meet the Brain</h2>
             <p className="text-lg text-muted-foreground mt-2 max-w-2xl mx-auto">
-              The passionate professionals dedicated to your success.
+              The passionate professional dedicated to your success.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamImages.map((member) => (
-              <Card key={member.id} className="text-center hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="pt-6">
-                  {member.imageUrl && (
-                    <Image
-                      src={member.imageUrl}
-                      alt={`Portrait of ${member.name}`}
-                      width={128}
-                      height={128}
-                      className="rounded-full mx-auto mb-4 border-4 border-primary/10"
-                      data-ai-hint={member.imageHint}
-                    />
-                  )}
-                  <h3 className="text-xl font-bold font-headline">{member.name}</h3>
-                  <p className="text-primary font-medium">{member.role}</p>
-                  <p className="text-muted-foreground text-sm mt-2">{member.bio}</p>
-                  <div className="flex justify-center gap-4 mt-4">
-                    <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
-                      <Twitter size={20} />
-                    </a>
-                    <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
-                      <Linkedin size={20} />
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <Card className="text-center hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="pt-6">
+                {sheetalImage && (
+                  <Image
+                    src={sheetalImage.imageUrl}
+                    alt="Portrait of Sheetal Savani"
+                    width={128}
+                    height={128}
+                    className="rounded-full mx-auto mb-4 border-4 border-primary/10"
+                    data-ai-hint={sheetalImage.imageHint}
+                  />
+                )}
+                <h3 className="text-xl font-bold font-headline">Sheetal Savani</h3>
+                <p className="text-primary font-medium">Founder & CEO</p>
+                <div className="flex justify-center gap-4 mt-4">
+                  <a href="#" className="text-muted-foreground hover:text-primary">
+                    <Twitter size={20} />
+                  </a>
+                  <a href="#" className="text-muted-foreground hover:text-primary">
+                    <Linkedin size={20} />
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow duration-300">
+              <CardHeader>
+                <CardTitle className="font-headline">About Sheetal</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4 text-muted-foreground">
+                <p>
+                  Experienced application developer with almost 6 years of experience including Flutter and Android Native. Experience in E-commerce, Healthcare, Photo editing app, Audio/Video Calling app, and many more apps. I'm a Complex problem-solver with an analytical and driven mindset. Dedicated to achieving demanding development objectives according to tight schedules while producing impeccable code.
+                </p>
+                <div>
+                  <h4 className="text-base font-semibold text-foreground mb-2">Skills</h4>
+                  <p>
+                    Dart, Flutter, Android SDK, Android OS, JAVA, State management, Team Leading, Firebase Crashalytics, Analytics, Deep linking, Social auth, Firestore Database, REST API, SOAP, JSON, CSS3, Mixpanel, Agora, WebRTC, Git, GitLab, bitbucket, MS Office
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

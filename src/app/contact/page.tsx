@@ -59,7 +59,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Our Office</h3>
-                    <p className="text-muted-foreground">123 Innovation Drive<br/>Tech City, TX 12345</p>
+                    <p className="text-muted-foreground">Niagara Falls<br/>Toronto, ON. Canada</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -77,7 +77,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Call Us</h3>
-                    <a href="tel:+1234567890" className="text-muted-foreground hover:text-primary transition-colors">(123) 456-7890</a>
+                    <a href="tel:+4164567890" className="text-muted-foreground hover:text-primary transition-colors">(416) 456-7890</a>
                   </div>
                 </div>
               </div>
