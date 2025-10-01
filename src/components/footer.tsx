@@ -52,8 +52,8 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Contact</h4>
             <div className="text-sm text-muted-foreground space-y-2">
               <p>Niagra Falls<br/>Toronto, ON. Canada</p>
-              <p>Email: <a href="mailto:contact@solitudeinfotech.com" className="hover:text-primary">contact@solitudeinfotech.com</a></p>
-              <p>Phone: <a href="tel:+14164567890" className="hover:text-primary">(416) 456-7890</a></p>
+              <p>Email: <a href="mailto:contact@solitudeinfotech.com" className="hover:text-primary">solitudeinfotech@gmail.com</a></p>
+              {/* <p>Phone: <a href="tel:+14164567890" className="hover:text-primary">(416) 456-7890</a></p> */}
             </div>
           </div>
         </div>
