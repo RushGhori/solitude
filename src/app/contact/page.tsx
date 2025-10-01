@@ -76,8 +76,8 @@ export default function ContactPage() {
                     <Phone className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg">Call Us</h3>
-                    <a href="tel:+4164567890" className="text-muted-foreground hover:text-primary transition-colors">(416) 456-7890</a>
+                    {/* <h3 className="font-semibold text-lg">Call Us</h3> */}
+                    {/* <a href="tel:+4164567890" className="text-muted-foreground hover:text-primary transition-colors">(416) 456-7890</a> */}
                   </div>
                 </div>
               </div>
