@@ -71,15 +71,15 @@ export default function ContactPage() {
                     <a href="mailto:contact@solitudeinfotech.com" className="text-muted-foreground hover:text-primary transition-colors">contact@solitudeinfotech.com</a>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
+                {/* <div className="flex items-start gap-4">
                   <div className="bg-primary text-primary-foreground p-3 rounded-md mt-1">
                     <Phone className="h-6 w-6" />
                   </div>
                   <div>
-                    {/* <h3 className="font-semibold text-lg">Call Us</h3> */}
-                    {/* <a href="tel:+4164567890" className="text-muted-foreground hover:text-primary transition-colors">(416) 456-7890</a> */}
+                    { <h3 className="font-semibold text-lg">Call Us</h3> }
+                    { <a href="tel:+4164567890" className="text-muted-foreground hover:text-primary transition-colors">(416) 456-7890</a>}
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
