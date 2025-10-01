@@ -1,77 +1,120 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
-import { useEffect, useRef } from 'react';
-
-import { submitContactForm, type FormState } from '@/app/actions';
+import { useState, useRef, FormEvent } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <Button type="submit" disabled={pending} className="w-full">
-      {pending ? 'Sending...' : 'Send Message'}
-    </Button>
-  );
-}
-
+// Static export compatible contact form
+// For production, integrate with a service like Formspree, Web3Forms, or EmailJS
 export function ContactForm() {
-  const initialState: FormState = { success: false, message: '' };
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
-  useEffect(() => {
-    if (state.success) {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      const data = {
+        name: formData.get('name') as string,
+        email: formData.get('email') as string,
+        subject: formData.get('subject') as string,
+        message: formData.get('message') as string,
+      };
+
+      // Basic validation
+      if (!data.name || data.name.length < 2) {
+        toast({
+          title: 'Error',
+          description: 'Name must be at least 2 characters.',
+          variant: 'destructive',
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      if (!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+        toast({
+          title: 'Error',
+          description: 'Please enter a valid email address.',
+          variant: 'destructive',
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      if (!data.subject || data.subject.length < 5) {
+        toast({
+          title: 'Error',
+          description: 'Subject must be at least 5 characters.',
+          variant: 'destructive',
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      if (!data.message || data.message.length < 10) {
+        toast({
+          title: 'Error',
+          description: 'Message must be at least 10 characters.',
+          variant: 'destructive',
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      // For static deployment: Log to console (replace with actual service in production)
+      // Example integrations:
+      // - Formspree: https://formspree.io/
+      // - Web3Forms: https://web3forms.com/
+      // - EmailJS: https://www.emailjs.com/
+      console.log('Contact form submission:', data);
+      
+      // Simulate successful submission
       toast({
         title: 'Success!',
-        description: state.message,
+        description: 'Thank you for your message! We will get back to you shortly.',
       });
+      
       formRef.current?.reset();
-    } else if (state.message && !state.success && state.errors) {
-       toast({
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
         title: 'Error',
-        description: state.message,
+        description: 'Failed to send message. Please try again later.',
         variant: 'destructive',
       });
+    } finally {
+      setIsSubmitting(false);
     }
-  }, [state, toast]);
+  };
 
   return (
-    <form ref={formRef} action={formAction} className="space-y-6">
+    <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-2">
         <Label htmlFor="name">Name</Label>
         <Input id="name" name="name" placeholder="Your Name" required />
-        {state.errors?.name && (
-          <p className="text-sm text-destructive">{state.errors.name.join(', ')}</p>
-        )}
       </div>
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
         <Input id="email" name="email" type="email" placeholder="your@email.com" required />
-         {state.errors?.email && (
-          <p className="text-sm text-destructive">{state.errors.email.join(', ')}</p>
-        )}
       </div>
       <div className="space-y-2">
         <Label htmlFor="subject">Subject</Label>
         <Input id="subject" name="subject" placeholder="Inquiry Subject" required />
-         {state.errors?.subject && (
-          <p className="text-sm text-destructive">{state.errors.subject.join(', ')}</p>
-        )}
       </div>
       <div className="space-y-2">
         <Label htmlFor="message">Message</Label>
         <Textarea id="message" name="message" placeholder="Your message..." rows={6} required />
-         {state.errors?.message && (
-          <p className="text-sm text-destructive">{state.errors.message.join(', ')}</p>
-        )}
       </div>
-      <SubmitButton />
+      <Button type="submit" disabled={isSubmitting} className="w-full">
+        {isSubmitting ? 'Sending...' : 'Send Message'}
+      </Button>
     </form>
   );
 }

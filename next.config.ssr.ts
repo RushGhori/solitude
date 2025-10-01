@@ -1,8 +1,11 @@
 import type {NextConfig} from 'next';
 
+// Configuration for Azure App Service with SSR support
 const nextConfig: NextConfig = {
   /* config options here */
-  output: 'export',
+  // Note: output: 'export' is commented out to enable SSR for contact form
+  // Uncomment for Azure Static Web Apps deployment without contact form functionality
+  // output: 'export',
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -10,7 +13,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    unoptimized: true, // Required for static export
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
